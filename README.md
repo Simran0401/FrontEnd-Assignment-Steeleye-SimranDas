@@ -166,6 +166,7 @@ To fix this, we need to first convert that string or number to a boolean value b
 PropTypes exports a range of validators that can be used to make sure that the data we receive is valid.
 
 -- To denote an array of certain type, `arrayOf` validator should be used instead of `array`
+
 -- There is no shapeOf validator available. The correct validator is `shape`
 
 #### WRONG CODE --
