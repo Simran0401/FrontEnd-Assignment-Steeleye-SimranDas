@@ -4,8 +4,11 @@
 #### Ans - The simple `List` component does the following tasks --
 
 ##### I. (a) The `WrappedListComponent` returns each `SingleListItem` by reading from an ordered `items` array in an unordered list format. 
+
 (b) The `WrappedListComponent` passes the `onClickHandler` down as props to `SingleListItem` component. 
+
 (c)The `WrappedListComponent` maintains a state of selection for `SingleListItem` as it passes the `isSelected` down as props. 
+
 (d) The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order to maintain the individuality of the component for React.
 
 ##### II. The `WrappedListComponent` uses inline style to align the text to the left side of all the child components inside the `unordered list (ul)` element.
