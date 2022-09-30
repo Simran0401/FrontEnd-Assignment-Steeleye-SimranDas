@@ -92,14 +92,14 @@ The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order 
 
      return (
         <ul style={{ textAlign: 'left' }}>
-        {items.map((item, index) => (
-            <SingleListItem
-            onClickHandler={() => handleClick(index)}
-            text={item.text}
-            index={index}
-            isSelected={selectedIndex}
-            />
-        ))}
+            {items.map((item, index) => (
+                  <SingleListItem
+                   onClickHandler={() => handleClick(index)}
+                   text={item.text}
+                   index={index}
+                   isSelected={selectedIndex}
+                  />
+            ))}
         </ul>
     );
 
@@ -107,16 +107,16 @@ The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order 
 
     return (
       <ul style={{ textAlign: "left" }}>
-      {items.map((item, index) => (
-            <SingleListItem
-            key={index} //Adding an unique key to each list item
-            onClickHandler={() => handleClick(index)}
-            text={item.text}
-            index={index}
-            isSelected={selectedIndex === index} //Returning a boolean value based on whether that list item is clicked
-            />
-      ))}
-    </ul>
+            {items.map((item, index) => (
+                  <SingleListItem
+                   key={index} //Adding an unique key to each list item
+                   onClickHandler={() => handleClick(index)}
+                   text={item.text}
+                   index={index}
+                   isSelected={selectedIndex === index} //Returning a boolean value based on whether that list item is clicked
+                  />
+            ))}
+      </ul>
    );
 
 #### (d) `Warning: Failed prop type: Invalid prop "isSelected" of type "number" supplied to "WrappedSingleListItem", expected "boolean"`
