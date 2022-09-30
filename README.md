@@ -40,9 +40,9 @@ V) The `SingleListItem` is a memoed version of `WrappedSingleListItem`. `React.m
 #### (a) `Logic Error: In the usage of onClickHandler`
 
 ##### 
-Through a function call, a function will only be called once the component renders, hence only rendering green color for the list item which was initially clicked despite of page reload.
+Through a function call, a function will only be called once the component renders. Hence through use of `onClick={onClickHandler(index)}`, green color is rendered for the list item which was initially clicked even after page reload.
 
-To remove this anomaly, we should pass the function reference to onClick prop i.e, an arrow function so that it can be called later by React, once the click actually happens.
+To remove this anomaly, we should pass the function reference to `onClick` prop i.e, an arrow function so that it can be called later by React, once the click actually happens.
 
 #### WRONG CODE --
 
@@ -127,7 +127,7 @@ So, initialised an unique key for each list item with the index value of that pa
 
 Here `isSelected` will only take a boolean value. So,if we pass boolean values as props, that value gets converted to a string or number, causing failed prop type.
 
-To fix this, we need to first convert that string or number to a boolean value before implementing.
+To fix this, we need to first convert that string or number to a boolean value before code execution.
 
 #### WRONG CODE --
 
@@ -189,7 +189,7 @@ PropTypes exports a range of validators that can be used to make sure that the d
 #### (f) `Uncaught TypeError: Cannot read properties of null (reading 'map')`
 
 ##### 
-In the given code, the `items` array was initialised as `null`, and it is not possible to map over null. Thus, we need to initialize the `items` array with some value so that mapping over the list items of the items array can be performed.
+In the given code, the `items` array was initialised as `null`, and it is not possible to map over null. Thus, we need to initialize the `items` array with some value so that mapping over the list items of the `items` array can be performed.
 
 #### WRONG CODE --
 
