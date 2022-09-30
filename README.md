@@ -17,12 +17,10 @@ The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order 
 
 ##### III) `WrappedListComponent` uses 2 React Hooks --
 
-        (a) useState - useState can only be used inside a functional component. 
-                       It returns the state variable and setState method as an array.
-        (b) useEffect - To deal with "side effects" in React functional components, 
-                        useEffect Hook can be used when component mounts or/and with each 
-                        update or/and before component unmounts.
-            In our case, we have used "useEffect" to update the state only when "items" prop updates.
+      (a) useState - useState can only be used inside a functional component. It returns the state variable and setState method as an array.
+      (b) useEffect - To deal with "side effects" in React functional components, useEffect Hook can be used when component mounts or/and with each 
+                     update or/and before component unmounts.
+          In our case, we have used "useEffect" to update the state only when "items" prop updates.
             
 
 ##### IV) The `SingleListItem` receives the `onClickHandler` which has a handleClick function with the ability to change the background color of the list item being clicked based on the index of that particular list item. `SingleListItem` component uses inline styling and using ternary operator to decide the respective background color. If `isSelected` is `true`, then the background color will be `green`, otherwise `red`.
@@ -44,30 +42,30 @@ The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order 
 
 #### WRONG CODE --
 
-        const WrappedSingleListItem = ({ index, isSelected, onClickHandler, text }) => {
-            return (
-                <li
-                style={{ backgroundColor: isSelected ? "green" : "red" }}
-                onClick={onClickHandler(index)}
-                >
-                {text}
-                </li>
-            );
-        };
+    const WrappedSingleListItem = ({ index, isSelected, onClickHandler, text }) => {
+        return (
+            <li
+            style={{ backgroundColor: isSelected ? "green" : "red" }}
+            onClick={onClickHandler(index)}
+            >
+            {text}
+            </li>
+        );
+    };
 
 #### CORRECTED CODE --
 
-        const WrappedSingleListItem = ({ index, isSelected, onClickHandler, text }) => {
-            return (
-                <li
-                style={{ backgroundColor: isSelected ? "green" : "red" }}
-                //Should pass the function reference to onClick prop instead of function call
-                onClick={() => onClickHandler(index)}
-                >
-                {text}
-                </li>
-            );
-        };
+     const WrappedSingleListItem = ({ index, isSelected, onClickHandler, text }) => {
+         return (
+             <li
+             style={{ backgroundColor: isSelected ? "green" : "red" }}
+             //Should pass the function reference to onClick prop instead of function call
+             onClick={() => onClickHandler(index)}
+             >
+             {text}
+             </li>
+         );
+     };
 
 #### (b) `Syntax Error: In the usage of useState Hook of React`
 
@@ -77,11 +75,11 @@ The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order 
 
 #### WRONG CODE --
 
-    const [setSelectedIndex, selectedIndex] = useState();
+     const [setSelectedIndex, selectedIndex] = useState();
 
 #### CORRECTED CODE --
 
-    const [selectedIndex, setSelectedIndex] = useState(null);
+     const [selectedIndex, setSelectedIndex] = useState(null);
 
 #### (c) `Warning: Missing unique key for each list item`
 
@@ -91,7 +89,7 @@ The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order 
 
 #### MISSING UNIQUE KEY --
 
-    return (
+     return (
         <ul style={{ textAlign: 'left' }}>
         {items.map((item, index) => (
             <SingleListItem
@@ -128,34 +126,34 @@ The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order 
 
 #### WRONG CODE --
 
-        return (
-            <ul style={{ textAlign: 'left' }}>
-            {items.map((item, index) => (
-                <SingleListItem
-                onClickHandler={() => handleClick(index)}
-                text={item.text}
-                index={index}
-                isSelected={selectedIndex}
-                />
-            ))}
-            </ul>
-        )
+     return (
+         <ul style={{ textAlign: 'left' }}>
+         {items.map((item, index) => (
+             <SingleListItem
+              onClickHandler={() => handleClick(index)}
+              text={item.text}
+              index={index}
+              isSelected={selectedIndex}
+              />
+          ))}
+          </ul>
+     );
 
 #### CORRECTED CODE --
 
-        return (
-            <ul style={{ textAlign: "left" }}>
-            {items.map((item, index) => (
-                <SingleListItem
-                key={index} //Adding an unique key to each list item
-                onClickHandler={() => handleClick(index)}
-                text={item.text}
-                index={index}
-                isSelected={selectedIndex === index} //Returning a boolean value based on whether that list item is clicked
-                />
-            ))}
-            </ul>
-        );
+     return (
+         <ul style={{ textAlign: "left" }}>
+         {items.map((item, index) => (
+             <SingleListItem
+             key={index} //Adding an unique key to each list item
+             onClickHandler={() => handleClick(index)}
+             text={item.text}
+             index={index}
+             isSelected={selectedIndex === index} //Returning a boolean value based on whether that list item is clicked
+             />
+         ))}
+         </ul>
+    );
 
 #### (e) `Syntax Error: Wrong usage of PropTypes validators`
 
@@ -167,20 +165,20 @@ The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order 
 
 #### WRONG CODE --
 
-        WrappedListComponent.propTypes = {
-            items: PropTypes.array(PropTypes.shapeOf({
-                text: PropTypes.string.isRequired,
-            })),
-        };
+     WrappedListComponent.propTypes = {
+         items: PropTypes.array(PropTypes.shapeOf({
+             text: PropTypes.string.isRequired,
+         })),
+     };
 
 #### CORRECTED CODE --
 
-        WrappedListComponent.propTypes = {
-            items: PropTypes.arrayOf(PropTypes.shape({
-                text: PropTypes.string.isRequired,
-                })
-            ),
-        };
+     WrappedListComponent.propTypes = {
+         items: PropTypes.arrayOf(PropTypes.shape({
+             text: PropTypes.string.isRequired,
+             })
+         ),
+     };
 
 #### (f) `Uncaught TypeError: Cannot read properties of null (reading 'map')`
 
@@ -188,21 +186,21 @@ The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order 
 
 #### WRONG CODE --
 
-        WrappedListComponent.defaultProps = {
-            items: null,
-        };
+     WrappedListComponent.defaultProps = {
+         items: null,
+     };
 
 #### CORRECTED CODE --
 
-        WrappedListComponent.defaultProps = {
-            items: [
-                { text: "Sample List Item", index: 1 },
-                { text: "Sample List Item", index: 2 },
-                { text: "Sample List Item", index: 3 },
-                { text: "Sample List Item", index: 4 },
-                { text: "Sample List Item", index: 5 },
-            ],
-        };
+     WrappedListComponent.defaultProps = {
+         items: [
+             { text: "Sample List Item", index: 1 },
+             { text: "Sample List Item", index: 2 },
+             { text: "Sample List Item", index: 3 },
+             { text: "Sample List Item", index: 4 },
+             { text: "Sample List Item", index: 5 },
+         ],
+     };
 
 #### (g) `Unrequired usage of memo on "WrappedListComponent" when assigning the List variable`
 
@@ -212,11 +210,11 @@ The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order 
 
 #### GIVEN CODE --
 
-        const List = memo(WrappedListComponent);
+     const List = memo(WrappedListComponent);
 
 #### MODIFIED CODE --
 
-        const List = WrappedListComponent;
+     const List = WrappedListComponent;
 
 ---
 
