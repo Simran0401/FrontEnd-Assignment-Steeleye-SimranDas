@@ -4,17 +4,12 @@
 #### Ans - The simple `List` component does the following tasks --
 
 ##### I) The `WrappedListComponent` returns each `SingleListItem` by reading from an ordered `items` array in an unordered list format.
-
 The `WrappedListComponent` passes the `onClickHandler` down as props to `SingleListItem` component.
-
 The `WrappedListComponent` maintains a state of selection for `SingleListItem` as it passes the `isSelected` down as props.
-
 The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order to maintain the individuality of the component for React.
 
 
-
 ##### II) The `WrappedListComponent` uses inline style to align the text to the left side of all the child components inside the `unordered list (ul)` element.
-
 
 
 ##### III) `WrappedListComponent` uses 2 React Hooks --
@@ -24,11 +19,9 @@ The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order 
       (b) useEffect - To deal with "side effects" in React functional components, useEffect Hook can be used when component 
                       mounts or/and with each update or/and before component unmounts.
           In our case, we have used "useEffect" to update the state only when "items" prop updates.
-         
-         
+                
 
 ##### IV) The `SingleListItem` receives the `onClickHandler` which has a handleClick function with the ability to change the background color of the list item being clicked based on the index of that particular list item. `SingleListItem` component uses inline styling and using ternary operator to decide the respective background color. If `isSelected` is `true`, then the background color will be `green`, otherwise `red`.
-
 
 
 ##### V) The `SingleListItem` is a memoed version of `WrappedSingleListItem`. `React.memo` only checks for prop changes and renders accordingly. If no prop changes, then the `React.memo` will skip the re-rendering of the component. The `React.memo` helps improve the performance optimisation of the application.
