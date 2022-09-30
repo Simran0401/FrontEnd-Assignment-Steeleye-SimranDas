@@ -121,7 +121,7 @@ So, initialised an unique key for each list item with the index value of that pa
                   />
             ))}
       </ul>
-   );
+    );
 
 #### (d) `Warning: Failed prop type: Invalid prop "isSelected" of type "number" supplied to "WrappedSingleListItem", expected "boolean"`
 
