@@ -19,8 +19,8 @@ The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order 
 
       (a) useState - useState can only be used inside a functional component. It returns the state variable and setState 
                      method as an array.
-      (b) useEffect - To deal with "side effects" in React functional components, useEffect Hook can be used when component mounts or/and with each 
-                     update or/and before component unmounts.
+      (b) useEffect - To deal with "side effects" in React functional components, useEffect Hook can be used when component 
+                      mounts or/and with each update or/and before component unmounts.
           In our case, we have used "useEffect" to update the state only when "items" prop updates.
             
 
@@ -44,29 +44,29 @@ The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order 
 #### WRONG CODE --
 
     const WrappedSingleListItem = ({ index, isSelected, onClickHandler, text }) => {
-      return (
-            <li
+        return (
+          <li
             style={{ backgroundColor: isSelected ? "green" : "red" }}
             onClick={onClickHandler(index)}
-            >
+          >
             {text}
-            </li>
-       )
-     };     
+          </li>
+        );
+      };    
         
 #### CORRECTED CODE --
 
      const WrappedSingleListItem = ({ index, isSelected, onClickHandler, text }) => {
-      return (
-            <li
+        return (
+          <li
             style={{ backgroundColor: isSelected ? "green" : "red" }}
             //Should pass the function reference to onClick prop instead of function call
             onClick={() => onClickHandler(index)}
-            >
+          >
             {text}
-            </li>
-       )
-     };     
+          </li>
+        );
+      };
 
 #### (b) `Syntax Error: In the usage of useState Hook of React`
 
@@ -106,8 +106,8 @@ The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order 
 #### ADDED UNIQUE KEY --
 
     return (
-        <ul style={{ textAlign: "left" }}>
-        {items.map((item, index) => (
+      <ul style={{ textAlign: "left" }}>
+      {items.map((item, index) => (
             <SingleListItem
             key={index} //Adding an unique key to each list item
             onClickHandler={() => handleClick(index)}
@@ -115,9 +115,9 @@ The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order 
             index={index}
             isSelected={selectedIndex === index} //Returning a boolean value based on whether that list item is clicked
             />
-        ))}
-        </ul>
-    );
+      ))}
+    </ul>
+   );
 
 #### (d) `Warning: Failed prop type: Invalid prop "isSelected" of type "number" supplied to "WrappedSingleListItem", expected "boolean"`
 
@@ -128,33 +128,33 @@ The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order 
 #### WRONG CODE --
 
      return (
-         <ul style={{ textAlign: 'left' }}>
-         {items.map((item, index) => (
-             <SingleListItem
-              onClickHandler={() => handleClick(index)}
-              text={item.text}
-              index={index}
-              isSelected={selectedIndex}
-              />
-          ))}
-          </ul>
-     );
+           <ul style={{ textAlign: "left" }}>
+                 {items.map((item, index) => (
+                       <SingleListItem
+                        onClickHandler={() => handleClick(index)}
+                        text={item.text}
+                        index={index}
+                        isSelected={selectedIndex} 
+                       />
+                  ))}
+            </ul>
+      );
 
 #### CORRECTED CODE --
 
      return (
-         <ul style={{ textAlign: "left" }}>
-         {items.map((item, index) => (
-             <SingleListItem
-             key={index} //Adding an unique key to each list item
-             onClickHandler={() => handleClick(index)}
-             text={item.text}
-             index={index}
-             isSelected={selectedIndex === index} //Returning a boolean value based on whether that list item is clicked
-             />
-         ))}
-         </ul>
-    );
+          <ul style={{ textAlign: "left" }}>
+                {items.map((item, index) => (
+                      <SingleListItem
+                       key={index} //Adding an unique key to each list item
+                       onClickHandler={() => handleClick(index)}
+                       text={item.text}
+                       index={index}
+                       isSelected={selectedIndex === index} //Returning a boolean value based on whether that list item is clicked
+                   />
+                ))}
+          </ul>
+     );
 
 #### (e) `Syntax Error: Wrong usage of PropTypes validators`
 
@@ -300,7 +300,7 @@ The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order 
       };
 
       //avoided using memo as it does not prevent re-rendering
-      //as only a single prop i.e, items array is received in it
+      //as only a single prop i.e, 'items' array is received in it
       const List = WrappedListComponent;
 
       export default List;
