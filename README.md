@@ -103,7 +103,7 @@ So, initialised an unique key for each list item with the index value of that pa
                    index={index}
                    isSelected={selectedIndex}
                   />
-            ))}
+             ))}
         </ul>
     );
 
@@ -111,15 +111,15 @@ So, initialised an unique key for each list item with the index value of that pa
 
     return (
       <ul style={{ textAlign: "left" }}>
-            {items.map((item, index) => (
-                  <SingleListItem
-                   key={index} //Adding an unique key to each list item
-                   onClickHandler={() => handleClick(index)}
-                   text={item.text}
-                   index={index}
-                   isSelected={selectedIndex === index} //Returning a boolean value based on whether that list item is clicked
-                  />
-            ))}
+          {items.map((item, index) => (
+                <SingleListItem
+                 key={index} //Adding an unique key to each list item
+                 onClickHandler={() => handleClick(index)}
+                 text={item.text}
+                 index={index}
+                 isSelected={selectedIndex === index} //Returning a boolean value based on whether that list item is clicked
+                />
+           ))}
       </ul>
     );
 
