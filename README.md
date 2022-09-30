@@ -25,7 +25,7 @@ III) `WrappedListComponent` uses 2 React Hooks --
                 
 
 ##### 
-IV) The `SingleListItem` receives the `onClickHandler` which has a handleClick function with the ability to change the background color of the list item being clicked based on the index of that particular list item. `SingleListItem` component uses inline styling and is using ternary operator to decide the respective background color. If `isSelected` is `true`, then the background color will be `green`, otherwise `red`.
+IV) The `SingleListItem` receives the `onClickHandler` which has a `handleClick` function with the ability to change the background color of the list item being clicked based on the index of that particular list item. `SingleListItem` component uses inline styling and is using ternary operator to decide the respective background color. If `isSelected` is `true`, then the background color will be `green`, otherwise `red`.
 
 
 ##### 
