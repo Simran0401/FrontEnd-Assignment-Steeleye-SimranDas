@@ -37,11 +37,12 @@ V) The `SingleListItem` is a memoed version of `WrappedSingleListItem`. `React.m
 
 #### Ans - The problems / warnings which were found in thr code are mentioned below:
 
-#### (a) Logic Error: In the usage of onClickHandler
+#### (a) `Logic Error: In the usage of onClickHandler`
 
-##### Through a function call, a function will only be called once the component renders, hence only rendering green color for the list item which was initially clicked despite of page reload.
+##### 
+Through a function call, a function will only be called once the component renders, hence only rendering green color for the list item which was initially clicked despite of page reload.
 
-##### To remove this anomaly, we should pass the function reference to onClick prop i.e, an arrow function so that it can be called later by React, once the click actually happens.
+To remove this anomaly, we should pass the function reference to onClick prop i.e, an arrow function so that it can be called later by React, once the click actually happens.
 
 #### WRONG CODE --
 
@@ -73,9 +74,10 @@ V) The `SingleListItem` is a memoed version of `WrappedSingleListItem`. `React.m
 #### 
 (b) `Syntax Error: In the usage of useState Hook of React`
 
-##### The `useState` Hook takes into account initial state as an argument and returns an array of two entries.
+##### 
+The `useState` Hook takes into account initial state as an argument and returns an array of two entries.
 
-##### Thus, `Correct Syntax` should have its first element as the initial state and the second one as a function that is used for updating the state. Also setting the initial value as `null`.
+Thus, `Correct Syntax` should have its first element as the initial state and the second one as a function that is used for updating the state. Also setting the initial value as `null`.
 
 #### WRONG CODE --
 
@@ -88,9 +90,9 @@ V) The `SingleListItem` is a memoed version of `WrappedSingleListItem`. `React.m
 #### 
 (c) `Warning: Missing unique key for each list item`
 
-##### Every list item requires an unique key.
+Every list item requires an unique key.
 
-##### So, initialised an unique key for each list item with the index value of that particular list item
+So, initialised an unique key for each list item with the index value of that particular list item
 
 #### MISSING UNIQUE KEY --
 
@@ -126,9 +128,9 @@ V) The `SingleListItem` is a memoed version of `WrappedSingleListItem`. `React.m
 #### 
 (d) `Warning: Failed prop type: Invalid prop "isSelected" of type "number" supplied to "WrappedSingleListItem", expected "boolean"`
 
-##### Here `isSelected` will only take a boolean value. So,if we pass boolean values as props, that value gets converted to a string or number, causing failed prop type.
+Here `isSelected` will only take a boolean value. So,if we pass boolean values as props, that value gets converted to a string or number, causing failed prop type.
 
-##### To fix this, we need to first convert that string or number to a boolean value before implementing.
+To fix this, we need to first convert that string or number to a boolean value before implementing.
 
 #### WRONG CODE --
 
@@ -164,11 +166,11 @@ V) The `SingleListItem` is a memoed version of `WrappedSingleListItem`. `React.m
 #### 
 (e) `Syntax Error: Wrong usage of PropTypes validators`
 
-##### PropTypes exports a range of validators that can be used to make sure that the data we receive is valid.
+##### 
+PropTypes exports a range of validators that can be used to make sure that the data we receive is valid.
 
-##### -- To denote an array of certain type, `arrayOf` validator should be used instead of `array`
-
-##### -- There is no shapeOf validator available. The correct validator is `shape`
+-- To denote an array of certain type, `arrayOf` validator should be used instead of `array`
+-- There is no shapeOf validator available. The correct validator is `shape`
 
 #### WRONG CODE --
 
@@ -190,7 +192,8 @@ V) The `SingleListItem` is a memoed version of `WrappedSingleListItem`. `React.m
 #### 
 (f) `Uncaught TypeError: Cannot read properties of null (reading 'map')`
 
-##### In the given code, the `items` array was initialised as `null`, and it is not possible to map over null. Thus, we need to initialize it with some value so that mapping over the list items of the items array can be performed.
+##### 
+In the given code, the `items` array was initialised as `null`, and it is not possible to map over null. Thus, we need to initialize it with some value so that mapping over the list items of the items array can be performed.
 
 #### WRONG CODE --
 
@@ -213,9 +216,10 @@ V) The `SingleListItem` is a memoed version of `WrappedSingleListItem`. `React.m
 #### 
 (g) `Unrequired usage of memo on "WrappedListComponent" when assigning the List variable`
 
-##### React `memo` function prevents re-renders on the component when a parent changes, but the props to the child component do not change.
+##### 
+React `memo` function prevents re-renders on the component when a parent changes, but the props to the child component do not change.
 
-##### But, the `memo` on `WrappedListComponent` will not make any difference since the only props it is receiving is the `items` array. Hence, we can safely avoid using memo as it does not prevent re-rendering because if one item is clicked, not only that particular item re-renders and changes its background color from red to green, but also the entire `items` array re-renders.
+But, the `memo` on `WrappedListComponent` will not make any difference since the only props it is receiving is the `items` array. Hence, we can safely avoid using memo as it does not prevent re-rendering because if one item is clicked, not only that particular item re-renders and changes its background color from red to green, but also the entire `items` array re-renders.
 
 #### GIVEN CODE --
 
