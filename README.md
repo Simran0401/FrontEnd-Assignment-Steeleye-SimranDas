@@ -17,7 +17,8 @@ The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order 
 
 ##### III) `WrappedListComponent` uses 2 React Hooks --
 
-      (a) useState - useState can only be used inside a functional component. It returns the state variable and setState method as an array.
+      (a) useState - useState can only be used inside a functional component. It returns the state variable and setState 
+                     method as an array.
       (b) useEffect - To deal with "side effects" in React functional components, useEffect Hook can be used when component mounts or/and with each 
                      update or/and before component unmounts.
           In our case, we have used "useEffect" to update the state only when "items" prop updates.
@@ -43,29 +44,29 @@ The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order 
 #### WRONG CODE --
 
     const WrappedSingleListItem = ({ index, isSelected, onClickHandler, text }) => {
-        return (
-            <li
-            style={{ backgroundColor: isSelected ? "green" : "red" }}
-            onClick={onClickHandler(index)}
-            >
-            {text}
-            </li>
-        );
-    };
-
+            return (
+                <li
+                style={{ backgroundColor: isSelected ? "green" : "red" }}
+                onClick={onClickHandler(index)}
+                >
+                {text}
+                </li>
+            );
+        };
+        
 #### CORRECTED CODE --
 
      const WrappedSingleListItem = ({ index, isSelected, onClickHandler, text }) => {
-         return (
-             <li
-             style={{ backgroundColor: isSelected ? "green" : "red" }}
-             //Should pass the function reference to onClick prop instead of function call
-             onClick={() => onClickHandler(index)}
-             >
-             {text}
-             </li>
-         );
-     };
+            return (
+                <li
+                style={{ backgroundColor: isSelected ? "green" : "red" }}
+                //Should pass the function reference to onClick prop instead of function call
+                onClick={() => onClickHandler(index)}
+                >
+                {text}
+                </li>
+            );
+        };
 
 #### (b) `Syntax Error: In the usage of useState Hook of React`
 
@@ -100,7 +101,7 @@ The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order 
             />
         ))}
         </ul>
-    )
+    );
 
 #### ADDED UNIQUE KEY --
 
