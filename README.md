@@ -284,8 +284,8 @@ But, the `memo` on `WrappedListComponent` will not make any difference since the
         );
       };
 
-      //Replacing array with arrayOf and shapeOf with shape
-      //arrayOf and shape are correct validators of PropTypes
+      //Replacing array with arrayOf, as arrayOf denotes an array of certain type 
+      //and shapeOf with shape, as no shapeOf valdator exists for PropTypes 
       WrappedListComponent.propTypes = {
         items: PropTypes.arrayOf(
           PropTypes.shape({
@@ -306,11 +306,10 @@ But, the `memo` on `WrappedListComponent` will not make any difference since the
         ],
       };
 
-      //avoided using memo as it does not prevent re-rendering
+      //Avoided using memo as it does not prevent re-rendering
       //as only a single prop i.e, 'items' array is received in it
       const List = WrappedListComponent;
 
       export default List;
-
 
 ---
