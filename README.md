@@ -17,8 +17,11 @@ The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order 
 
 ##### III) `WrappedListComponent` uses 2 React Hooks --
 
-        (a) useState - useState can only be used inside a functional component. It returns the state variable and setState method as an array.
-        (b) useEffect - To deal with "side effects" in React functional components, useEffect Hook can be used when component mounts or/and with each update or/and before component unmounts.
+        (a) useState - useState can only be used inside a functional component. 
+                       It returns the state variable and setState method as an array.
+        (b) useEffect - To deal with "side effects" in React functional components, 
+                        useEffect Hook can be used when component mounts or/and with each 
+                        update or/and before component unmounts.
             In our case, we have used "useEffect" to update the state only when "items" prop updates.
             
 
