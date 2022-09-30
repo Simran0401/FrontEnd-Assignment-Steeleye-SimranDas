@@ -10,10 +10,12 @@ The `WrappedListComponent` maintains a state of selection for `SingleListItem` a
 The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order to maintain the individuality of the component for React.
 
 
-##### II) The `WrappedListComponent` uses inline style to align the text to the left side of all the child components inside the `unordered list (ul)` element.
+##### 
+II) The `WrappedListComponent` uses inline style to align the text to the left side of all the child components inside the `unordered list (ul)` element.
 
 
-##### III) `WrappedListComponent` uses 2 React Hooks --
+##### 
+III) `WrappedListComponent` uses 2 React Hooks --
 
       (a) useState - useState can only be used inside a functional component. It returns the state variable and setState 
                      method as an array.
@@ -22,10 +24,12 @@ The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order 
           In our case, we have used "useEffect" to update the state only when "items" prop updates.
                 
 
-##### IV) The `SingleListItem` receives the `onClickHandler` which has a handleClick function with the ability to change the background color of the list item being clicked based on the index of that particular list item. `SingleListItem` component uses inline styling and using ternary operator to decide the respective background color. If `isSelected` is `true`, then the background color will be `green`, otherwise `red`.
+##### 
+IV) The `SingleListItem` receives the `onClickHandler` which has a handleClick function with the ability to change the background color of the list item being clicked based on the index of that particular list item. `SingleListItem` component uses inline styling and using ternary operator to decide the respective background color. If `isSelected` is `true`, then the background color will be `green`, otherwise `red`.
 
 
-##### V) The `SingleListItem` is a memoed version of `WrappedSingleListItem`. `React.memo` only checks for prop changes and renders accordingly. If no prop changes, then the `React.memo` will skip the re-rendering of the component. The `React.memo` helps improve the performance optimisation of the application.
+##### 
+V) The `SingleListItem` is a memoed version of `WrappedSingleListItem`. `React.memo` only checks for prop changes and renders accordingly. If no prop changes, then the `React.memo` will skip the re-rendering of the component. The `React.memo` helps improve the performance optimisation of the application.
 
 ---
 
@@ -33,7 +37,8 @@ The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order 
 
 #### Ans - The problems / warnings which were found in thr code are mentioned below:
 
-#### (a) `Logic Error: In the usage of onClickHandler`
+#### 
+(a) `Logic Error: In the usage of onClickHandler`
 
 ##### Through a function call, a function will only be called once the component renders, hence only rendering green color for the list item which was initially clicked despite of page reload.
 
@@ -66,7 +71,8 @@ The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order 
         );
      };
 
-#### (b) `Syntax Error: In the usage of useState Hook of React`
+#### 
+(b) `Syntax Error: In the usage of useState Hook of React`
 
 ##### The `useState` Hook takes into account initial state as an argument and returns an array of two entries.
 
@@ -80,7 +86,8 @@ The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order 
 
      const [selectedIndex, setSelectedIndex] = useState(null);
 
-#### (c) `Warning: Missing unique key for each list item`
+#### 
+(c) `Warning: Missing unique key for each list item`
 
 ##### Every list item requires an unique key.
 
@@ -117,7 +124,8 @@ The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order 
       </ul>
    );
 
-#### (d) `Warning: Failed prop type: Invalid prop "isSelected" of type "number" supplied to "WrappedSingleListItem", expected "boolean"`
+#### 
+(d) `Warning: Failed prop type: Invalid prop "isSelected" of type "number" supplied to "WrappedSingleListItem", expected "boolean"`
 
 ##### Here `isSelected` will only take a boolean value. So,if we pass boolean values as props, that value gets converted to a string or number, causing failed prop type.
 
@@ -154,7 +162,8 @@ The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order 
           </ul>
      );
 
-#### (e) `Syntax Error: Wrong usage of PropTypes validators`
+#### 
+(e) `Syntax Error: Wrong usage of PropTypes validators`
 
 ##### PropTypes exports a range of validators that can be used to make sure that the data we receive is valid.
 
@@ -179,7 +188,8 @@ The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order 
      };
 
 
-#### (f) `Uncaught TypeError: Cannot read properties of null (reading 'map')`
+#### 
+(f) `Uncaught TypeError: Cannot read properties of null (reading 'map')`
 
 ##### In the given code, the `items` array was initialised as `null`, and it is not possible to map over null. Thus, we need to initialize it with some value so that mapping over the list items of the items array can be performed.
 
@@ -201,7 +211,8 @@ The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order 
          ],
      };
 
-#### (g) `Unrequired usage of memo on "WrappedListComponent" when assigning the List variable`
+#### 
+(g) `Unrequired usage of memo on "WrappedListComponent" when assigning the List variable`
 
 ##### React `memo` function prevents re-renders on the component when a parent changes, but the props to the child component do not change.
 
