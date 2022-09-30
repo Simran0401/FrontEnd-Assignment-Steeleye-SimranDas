@@ -52,7 +52,7 @@ The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order 
             {text}
           </li>
         );
-      };    
+     };    
         
 #### CORRECTED CODE --
 
@@ -66,7 +66,7 @@ The `WrappedListComponent` passes `key` as `index` to `SingleListItem` in order 
             {text}
           </li>
         );
-      };
+     };
 
 #### (b) `Syntax Error: In the usage of useState Hook of React`
 
