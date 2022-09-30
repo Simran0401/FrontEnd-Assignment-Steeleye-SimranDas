@@ -71,8 +71,7 @@ To remove this anomaly, we should pass the function reference to onClick prop i.
         );
      };
 
-#### 
-(b) `Syntax Error: In the usage of useState Hook of React`
+#### (b) `Syntax Error: In the usage of useState Hook of React`
 
 ##### 
 The `useState` Hook takes into account initial state as an argument and returns an array of two entries.
@@ -87,8 +86,7 @@ Thus, `Correct Syntax` should have its first element as the initial state and th
 
      const [selectedIndex, setSelectedIndex] = useState(null);
 
-#### 
-(c) `Warning: Missing unique key for each list item`
+#### (c) `Warning: Missing unique key for each list item`
 
 Every list item requires an unique key.
 
@@ -125,8 +123,7 @@ So, initialised an unique key for each list item with the index value of that pa
       </ul>
    );
 
-#### 
-(d) `Warning: Failed prop type: Invalid prop "isSelected" of type "number" supplied to "WrappedSingleListItem", expected "boolean"`
+#### (d) `Warning: Failed prop type: Invalid prop "isSelected" of type "number" supplied to "WrappedSingleListItem", expected "boolean"`
 
 Here `isSelected` will only take a boolean value. So,if we pass boolean values as props, that value gets converted to a string or number, causing failed prop type.
 
@@ -163,8 +160,7 @@ To fix this, we need to first convert that string or number to a boolean value b
           </ul>
      );
 
-#### 
-(e) `Syntax Error: Wrong usage of PropTypes validators`
+#### (e) `Syntax Error: Wrong usage of PropTypes validators`
 
 ##### 
 PropTypes exports a range of validators that can be used to make sure that the data we receive is valid.
@@ -189,8 +185,7 @@ PropTypes exports a range of validators that can be used to make sure that the d
      };
 
 
-#### 
-(f) `Uncaught TypeError: Cannot read properties of null (reading 'map')`
+#### (f) `Uncaught TypeError: Cannot read properties of null (reading 'map')`
 
 ##### 
 In the given code, the `items` array was initialised as `null`, and it is not possible to map over null. Thus, we need to initialize it with some value so that mapping over the list items of the items array can be performed.
@@ -213,8 +208,7 @@ In the given code, the `items` array was initialised as `null`, and it is not po
          ],
      };
 
-#### 
-(g) `Unrequired usage of memo on "WrappedListComponent" when assigning the List variable`
+#### (g) `Unrequired usage of memo on "WrappedListComponent" when assigning the List variable`
 
 ##### 
 React `memo` function prevents re-renders on the component when a parent changes, but the props to the child component do not change.
