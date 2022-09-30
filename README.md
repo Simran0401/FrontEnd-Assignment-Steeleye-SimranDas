@@ -37,8 +37,7 @@ V) The `SingleListItem` is a memoed version of `WrappedSingleListItem`. `React.m
 
 #### Ans - The problems / warnings which were found in thr code are mentioned below:
 
-#### 
-(a) `Logic Error: In the usage of onClickHandler`
+#### (a) Logic Error: In the usage of onClickHandler
 
 ##### Through a function call, a function will only be called once the component renders, hence only rendering green color for the list item which was initially clicked despite of page reload.
 
