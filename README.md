@@ -189,7 +189,7 @@ PropTypes exports a range of validators that can be used to make sure that the d
 #### (f) `Uncaught TypeError: Cannot read properties of null (reading 'map')`
 
 ##### 
-In the given code, the `items` array was initialised as `null`, and it is not possible to map over null. Thus, we need to initialize it with some value so that mapping over the list items of the items array can be performed.
+In the given code, the `items` array was initialised as `null`, and it is not possible to map over null. Thus, we need to initialize the `items` array with some value so that mapping over the list items of the items array can be performed.
 
 #### WRONG CODE --
 
@@ -287,8 +287,8 @@ But, the `memo` on `WrappedListComponent` will not make any difference since the
       //Replacing array with arrayOf and shapeOf with shape
       //arrayOf and shape are correct validators of PropTypes
       WrappedListComponent.propTypes = {
-        items: PropTypes.array(
-          PropTypes.shapeOf({
+        items: PropTypes.arrayOf(
+          PropTypes.shape({
             text: PropTypes.string.isRequired,
           })
         ),
