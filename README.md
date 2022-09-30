@@ -167,7 +167,7 @@ PropTypes exports a range of validators that can be used to make sure that the d
 
 -- To denote an array of certain type, `arrayOf` validator should be used instead of `array`
 
--- There is no shapeOf validator available. The correct validator is `shape`
+-- There is no `shapeOf` validator available. The correct validator is `shape`
 
 #### WRONG CODE --
 
